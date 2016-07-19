@@ -172,7 +172,6 @@ module.exports = postcss.plugin("myplugin", function(options) {
             });
             pipeline.use(cssnano(minimizeOptions));
         }
-        console.log("/css-loader!" + options.from, options.to);
         pipeline.process(css, {
             // we need a prefix to avoid path rewriting of PostCSS
             from: "/css-loader!" + options.from,
@@ -184,7 +183,6 @@ module.exports = postcss.plugin("myplugin", function(options) {
                 annotation: false
             }
         }).then(function(result) {
-            console.log(result);
             callback(null, {
                 source: result.css,
                 map: result.map && result.map.toJSON(),

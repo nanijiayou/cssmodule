@@ -264,5 +264,6 @@ exports.interpolateName = function interpolateName(loaderContext, name, options)
     if(typeof loaderContext.options === "object" && typeof loaderContext.options.customInterpolateName === "function") {
         url = loaderContext.options.customInterpolateName.call(loaderContext, url, name, options);
     }
+    console.log(url);
     return url;
 };
