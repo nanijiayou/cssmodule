@@ -64,6 +64,20 @@ module.exports = postcss.plugin("separate-different-modules", function(options) 
             decl.value = Tokenizer.stringifyValues(values);
         });
 
-        result.exports = exports;
+        function compileExports(exports) {
+            if (!Object.keys(exports).length) {
+                return "";
+            }
+            var exportJs = Object.keys(exports).reduce(function(res, key) {
+                var valueAsString = JSON.stringify(exports[key]);
+                res.push("\t" + JSON.stringify(key) + ": " + valueAsString);
+                return res;
+            }, []).join(",\n");
+
+            return "{\n" + exportJs + "\n}";
+        };
+        
+        var exportJs = "exports.locals = " + compileExports(exports) + ";"
+        result.exports = exportJs;
     };
 });
