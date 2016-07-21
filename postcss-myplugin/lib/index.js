@@ -28,11 +28,9 @@ fs.readFile(s, 'utf8', function (err, data) {
         
         fs.writeFile(t, css, function (err, data) {
             if(err) throw err;
-            console.log('css ok');
         })
         fs.writeFile(e, JSON.stringify(exports), function (err, data) {
             if(err) throw err;
-            console.log('eportsJs ok');
         })
     })
 })
