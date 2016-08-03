@@ -1,5 +1,5 @@
-var postcss = require("postcss");
-var Tokenizer       = require("css-selector-tokenizer");
+var postcss   = require("postcss");
+var Tokenizer = require("css-selector-tokenizer");
 
 module.exports = postcss.plugin("separate-different-modules", function(options) {
     return function(css, result) {
