@@ -12,6 +12,7 @@ var s = path.join(path.dirname(__dirname), 'src/style.css');
 var t = path.join(path.dirname(__dirname), 'dist/dist.css');
 var e = path.join(path.dirname(__dirname), 'dist/exports.js');
 
+//读取文件,编译
 fs.readFile(s, 'utf8', function (err, data) {
     if(err) {}
     var pipeline = postcss([
